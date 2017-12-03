@@ -5,5 +5,5 @@ This is an unofficial collection of documentation for Generic Attribute services
 
 | Name          | Description |
 | ------------- |-------------|
-| [ble-io](ble-io)    | IO client class for generic GPIO|
-| [uart](uart)    | UART for generic Serial/Streaming data, created by Nordic|
+| [ble-io](services/ble-io)    | IO client class for generic GPIO|
+| [uart](services/uart)    | UART for generic Serial/Streaming data, created by Nordic|
