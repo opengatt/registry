@@ -1,7 +1,7 @@
 # ble-io bluetooth service
 
 
-## bada5555-e91f-1337-a49b-8675309fb099 IO service
+## bada5555-e91f-1337-a49b-8675309fb099
 
 This is the main service that IO Characteristics belong to.  All bytes in the document are represented by arrays of values 0 to 255.
 
