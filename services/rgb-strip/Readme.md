@@ -8,18 +8,18 @@ A generic service for controlling a RGB or RGB+W strip of LEDs such as neopixels
 ### e92f  write RGB pixel value(s)
 
 * one pixel: [pin #, pixel #, R,G,B]
-  example: [6, 2, 127,0,200]
+  * example: [6, 2, 127,0,200]
 
 * multiple pixels: [pin #, pixel #, R,G,B, pixel #, R,G,B]
-  example: [6, 2, 127,0,200, 3, 55,210,15]
+  * example: [6, 2, 127,0,200, 3, 55,210,15]
 
 ### e93f  write RGBW pixel value(s)
 
 * one pixel: [pin #, pixel #, R,G,B,W]
-  example: [6, 2, 127,0,200,255]
+  * example: [6, 2, 127,0,200,255]
 
 * multiple pixels: [pin #, pixel #, R,G,BW, pixel #, R,G,BW]
-  example: [6, 2, 127,0,200,255, 3, 55,210,15,127]
+  * example: [6, 2, 127,0,200,255, 3, 55,210,15,127]
 
 ### e94f  set entire strip color
 * set RGB value: [pin #, R,G,B]
