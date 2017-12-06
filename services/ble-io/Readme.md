@@ -98,6 +98,7 @@ write `[112, 3, 0, 0, 180, 0]`
 
 ## Peripheral Implementations
   * [Intel Curie](https://github.com/monteslu/ble-io/tree/master/arduino/curie) Arduino 101 & TinyTile boards
+  * [ESP32](https://github.com/monteslu/ble-io/tree/master/arduino/esp32) Lolin32, Lolin32 Lite, and other boards.
 
 ## Client Implementations
   * [ble-io](https://github.com/monteslu/ble-io) JavaScript (Node.js and Browser)
