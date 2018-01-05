@@ -5,6 +5,7 @@ This is an unofficial collection of documentation for Generic Attribute services
 
 | Name          | Description |
 | ------------- |-------------|
+| [band-hplus](services/band-hplus)    | Service for heartrate, steps and calories for HPLUS sportsbands|
 | [ble-io](services/ble-io)    | Generic GPIO service for robotics and IoT devices|
 | [led-calex](services/led-calex)    | Service for controlling lightbulbs from Calex or Maginon |
 | [led-elk](services/led-elk)    | Service for controlling LED boards from Elink Co.|
