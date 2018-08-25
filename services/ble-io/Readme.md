@@ -5,7 +5,7 @@
 
 This is the main service that IO Characteristics belong to.  All bytes in the document are represented by arrays of values 0 to 255.
 
-### 2a56 Digital Characteristic
+### 2a56 Digital Characteristic (write, notify)
 
 This characteristic is for reading and writing digital values to pins.
 
@@ -24,7 +24,7 @@ Subscribe for notifications to this characteristic for changes in value.
 a notify of `[9, 1]` means that pin 9 has been turned on.
 
 
-### 2a58 Analog Characteristic
+### 2a58 Analog Characteristic (write, notify)
 
 This characteristic is for reading and writing analog values to pins.  Analog values come in at values 0-1023 and must be split across 2 bytes with Least Significant Bits first: LSB(bits 0-7) followed by the Most Significant Bits: MSB(bits 8-15).  However, simple 8-bit analog [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation) writes do not need an MSB byte sent.
 
@@ -43,9 +43,12 @@ Subscribe for notifications to this characteristic for changes in analog values.
 a notify of `[15, 202, 2]` means that pin 15's analog reading is 714.
 
 
-### 2a59 Config Characteristic
+### 2a59 Config Characteristic (read, write)
 
 This characteristic is used to configure the BLE peripheral's pins.
+
+#### Read version
+Doing a read on this characteristic should give you back the BLE-IO version for example: `[1, 0, 0]`
 
 #### SET_PIN_MODE  `244`:
 
@@ -92,8 +95,31 @@ To set min and maxes on a servo, you'll need to issue both min and max values as
 To set the min to 0 and max to 180 on pin 3:
 write `[112, 3, 0, 0, 180, 0]`
 
+#### I2C_CONFIG `120`:
+To configure an i2c bus, you'll need to send a bus number, SDA and SDL pins and delay in microseconds.
+
+For bus 0, pins 20 & 21, with a 3 microsecond delay:
+write `[120, 0, 20, 21, 3]`
 
 
+### 2a60 I2C Read Characteristic (write, notify)
+
+This characteristic is used to make requests for data as well as subscribe to notifications for those data requests.
+
+You write a request for a single notification, continuous notifications, or to stop continuous notifications. The second byte in the write for these modes are `1`, `2`, or `3` respectively.
+
+* For a single notification on i2c bus 0 at address 27 and register 4 for 15 bytes write: `[0, 1, 27, 4, 15]`
+* For a continuous notifications on i2c bus 0 at address 27 and register 4 for 15 bytes write: `[0, 2, 27, 4, 15]`
+* To stop notifcations on i2c bus 0 at address 27: `[0, 3, 27]`
+
+i2c read Notifications arrive in the format: `[0, 27, 4, x, x, x, x...]` where the first byte is the bus number, second byte is the address and the third byte is the register. All subsequent bytes are the i2c message data.
+
+
+### 2a60 I2C Write Characteristic (write)
+
+This characteristic is used to write data to an i2c bus, address, and register.
+
+For example, to write bytes on i2c bus 0 at address 110 and register 0 write bytes: `[0, 110, 0, x, x, x...]` where all bytes after the third byte are the message data.
 
 
 ## Peripheral Implementations
