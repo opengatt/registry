@@ -112,14 +112,14 @@ You write a request for a single notification, continuous notifications, or to s
 * For a continuous notifications on i2c bus 0 at address 27 and register 4 for 15 bytes write: `[0, 2, 27, 4, 15]`
 * To stop notifcations on i2c bus 0 at address 27: `[0, 3, 27]`
 
-i2c read Notifications arrive in the format: `[0, 27, 4, x, x, x, x...]` where the first byte is the bus number, second byte is the address and the third byte is the register. All subsequent bytes are the i2c message data.
+i2c read Notifications arrive in the format: `[0, 27, 4, x, x, x, x...]` where the first byte is the bus number, second byte is the address, the third byte is the register, and all subsequent bytes are the i2c message data.
 
 
 ### 2a60 I2C Write Characteristic (write)
 
 This characteristic is used to write data to an i2c bus, address, and register.
 
-For example, to write bytes on i2c bus 0 at address 110 and register 0 write bytes: `[0, 110, 0, x, x, x...]` where all bytes after the third byte are the message data.
+For example, to write bytes on i2c bus 0 at address 110 and register 0 write bytes: `[0, 110, 0, x, x, x...]` where the first byte is the bus number, second byte is the address, the third byte is the register, and all subsequent bytes are the i2c message data.
 
 
 ## Peripheral Implementations
