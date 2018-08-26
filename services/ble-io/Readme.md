@@ -5,7 +5,7 @@
 
 This is the main service that IO Characteristics belong to.  All bytes in the document are represented by arrays of values 0 to 255.
 
-### 2a56 Digital Characteristic (write, notify)
+### 2a56 - Digital Characteristic (write, notify)
 
 This characteristic is for reading and writing digital values to pins.
 
@@ -24,7 +24,7 @@ Subscribe for notifications to this characteristic for changes in value.
 a notify of `[9, 1]` means that pin 9 has been turned on.
 
 
-### 2a58 Analog Characteristic (write, notify)
+### 2a58 - Analog Characteristic (write, notify)
 
 This characteristic is for reading and writing analog values to pins.  Analog values come in at values 0-1023 and must be split across 2 bytes with Least Significant Bits first: LSB(bits 0-7) followed by the Most Significant Bits: MSB(bits 8-15).  However, simple 8-bit analog [PWM](https://en.wikipedia.org/wiki/Pulse-width_modulation) writes do not need an MSB byte sent.
 
@@ -43,7 +43,7 @@ Subscribe for notifications to this characteristic for changes in analog values.
 a notify of `[15, 202, 2]` means that pin 15's analog reading is 714.
 
 
-### 2a59 Config Characteristic (read, write)
+### 2a59 - Config Characteristic (read, write)
 
 This characteristic is used to configure the BLE peripheral's pins.
 
@@ -102,7 +102,7 @@ For bus 0, pins 20 & 21, with a 3 microsecond delay:
 write `[120, 0, 20, 21, 3]`
 
 
-### 2a60 I2C Read Characteristic (write, notify)
+### 2a60 - I2C Read Characteristic (write, notify)
 
 This characteristic is used to make requests for data as well as subscribe to notifications for those data requests.
 
@@ -115,7 +115,7 @@ You write a request for a single notification, continuous notifications, or to s
 i2c read Notifications arrive in the format: `[0, 27, 4, 75, x, x, x...]` where the first byte is the bus number, second byte is the address, the third byte is the register, fourth byte is the number of message bytes, and all subsequent bytes are the i2c message data.
 
 
-### 2a61 I2C Write Characteristic (write)
+### 2a61 - I2C Write Characteristic (write)
 
 This characteristic is used to write data to an i2c bus, address, and register.
 
