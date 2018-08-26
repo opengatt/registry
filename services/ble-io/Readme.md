@@ -115,7 +115,7 @@ You write a request for a single notification, continuous notifications, or to s
 i2c read Notifications arrive in the format: `[0, 27, 4, 75, x, x, x...]` where the first byte is the bus number, second byte is the address, the third byte is the register, fourth byte is the number of message bytes, and all subsequent bytes are the i2c message data.
 
 
-### 2a60 I2C Write Characteristic (write)
+### 2a61 I2C Write Characteristic (write)
 
 This characteristic is used to write data to an i2c bus, address, and register.
 
